@@ -121,12 +121,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-<<<<<<< HEAD
-=======
     rack_session_access (0.2.0)
       builder (>= 2.0.0)
       rack (>= 1.0.0)
->>>>>>> 74e80f35ec076eb359bf81ae9dfb7012584fb0a6
     rails (5.2.2.1)
       actioncable (= 5.2.2.1)
       actionmailer (= 5.2.2.1)
