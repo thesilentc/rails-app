@@ -1,7 +1,7 @@
 #THIS IS TO BE DELETED BEFORE SHIPPING
 
 A user has many hosts
-A host belongs to a user
+A host has many users
 Users have many hats through hosts
 Hats have many users through hosts
 
@@ -12,7 +12,8 @@ class User < ApplicationRecord
 end
 
 class Host < ApplicationRecord
-  belongs_to :user
+  has_many :users
+  has_many :hats
 end
 
 class Hat < ApplicationRecord
