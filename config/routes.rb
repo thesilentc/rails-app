@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'application#home'
+  
   get 'users_controller/index'
   get 'users_controller/edit'
   get 'users_controller/update'
