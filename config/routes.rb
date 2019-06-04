@@ -14,13 +14,13 @@ Rails.application.routes.draw do
       resources :tasks, only: [:index]          
   end 
 
-  resources :projects  do 
+  resources :hosts  do 
     member do          
       get :completed
     end   
   end 
 
-  resources :projects  do 
+  resources :hosts  do 
       resources :tasks, only: [:create, :edit, :update, :destroy ]  do 
         member do          
           patch :complete
