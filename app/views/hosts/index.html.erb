@@ -1,0 +1,66 @@
+<h1 class="title">Your Hosts</h1>
+<% if flash[:notice] %>
+<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if @hosts.size == 0
+    flash[:notice] = "You have no acitve Hosts...."
+  end 
+%>
+<% @hosts.each do |host| %>
+  
+  <div class="index_row clearfix">
+
+    <% if host.status == "active" %>
+      <h2 class="title">
+        <%= link_to host.name, host_path(host) %>  
+      </h2>
+      
+      <h2 class="sub_title">      
+        <%= host.description %>         
+      </h2>
+      
+      <br/> 
+
+      <% if current_user.admin %>
+      <div class="links">
+        <%= link_to "Edit Host", [:edit, host] %>
+        <%=   link_to host_path(host), method: :delete, data: { confirm: 'Are you sure you want to delete this Host? All host tasks shall also be deleted.' } do %> 
+          
+          <i class="fa fa-trash"></i>   
+        <% end %>   
+      </div>
+      <% else %>
+        <div class="links">
+          <%= link_to "Show Tasks", host_path(host) %>
+        </div>
+      <% end %>     
+
+    <% else %>
+        <h2 class="title">
+          <strike><%= link_to host.name, host_path(host) %>  </strike>
+        </h2>
+              
+        <h2 class="sub_title">
+          <strike><%= host.description %>  </strike>
+        </h2>
+        <div class="links">
+          <%= link_to "Edit Host", [:edit, host] %>
+          <%=   link_to host_path(host), method: :delete, data: { confirm: 'Are you sure you want to delete this Host? All host tasks shall also be deleted.' } do %> 
+          
+            <i class="fa fa-trash"></i>   
+          <% end %>
+        </div>
+      
+  <% end %>
+
+  
+  </div>
+  
+<% end %>
+
+<div class="links">
+  <% if current_user.admin %>  
+      <p><%= link_to 'New Hosts', new_host_path %></p>  
+  <% end %>
+</div>
+
