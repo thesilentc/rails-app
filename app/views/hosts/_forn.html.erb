@@ -1,0 +1,22 @@
+<%= form_for @host do |f| %>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+      
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <br>
+    <%= f.label :status %>
+    <%= f.radio_button :status, "active", checked: true %>
+    <%= f.label :status_active, "Active" %>
+
+    <%= f.radio_button :status, "deactive" %>
+    <%= f.label :status_inactive, "Deactive" %>
+
+    <br>
+    <br>
+<%= f.submit class: "btn btn-primary" %>
+<% end %>
+

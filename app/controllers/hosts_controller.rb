@@ -1,6 +1,6 @@
 class HostsController < ApplicationController
     before_action :authenticate_user
-    before_action :set_project, only: [:show, :edit, :update, :destroy, :completed]
+    before_action :set_host, only: [:show, :edit, :update, :destroy, :completed]
   
     def index    
       if current_user.admin

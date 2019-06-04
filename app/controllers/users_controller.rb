@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @projects = @user.projects.status.uniq
+   # @hosts = @user.hosts.status.uniq
 
     if !current_user.admin
       if current_user != @user
