@@ -4,7 +4,7 @@ class Host < ActiveRecord::Base
   has_many :users
   belongs_to :hat
 
-  scope :status, -> { where(status: 'active') }
-  scope :recent, -> { order('projects.updated_at DESC') }
+  # scope :status, -> { where(status: 'active') }
+  # scope :recent, -> { order('projects.updated_at DESC') }
 
 end

@@ -5,10 +5,10 @@ class HostsController < ApplicationController
     def index    
       if current_user.admin
         @users = User.where(admin: false)  
-        @hosts = Host.all.recent    
+        #@hosts = Host.all.recent    
       else 
         @users = User.where(id: current_user.id)
-        @hosts = Host.all.status
+       # @hosts = Host.all.status
       end
     end
   
