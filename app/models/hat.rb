@@ -1,5 +1,5 @@
 class Hat < ActiveRecord::Base
 
-  has_many :hosts
+  belongs_to :host
   has_many :users, through: :hosts
 end

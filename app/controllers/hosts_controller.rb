@@ -5,7 +5,7 @@ class HostsController < ApplicationController
     def index    
       if current_user.admin
         @users = User.where(admin: false)  
-        #@hosts = Host.all.recent    
+        @hosts = Host.all    
       else 
         @users = User.where(id: current_user.id)
        # @hosts = Host.all.status
@@ -17,7 +17,7 @@ class HostsController < ApplicationController
   
     def new
       @host = Host.new
-      @task = Task.new
+      @hat = Hat.new
     end
   
     def create 
@@ -46,10 +46,10 @@ class HostsController < ApplicationController
   
     def destroy     
       if @host.delete
-           @tasks = Task.where(:host_id => @host.id)
+           @hosts = Task.where(:host_id => @host.id)
            
-           if @tasks.delete_all
-            flash[:notice] = "Successfully deleted this Host !! All tasks for this Host were also deleted !!"
+           if @hosts.delete_all
+            flash[:notice] = "Successfully deleted this Host !! All hosts for this Host were also deleted !!"
             redirect_to @host
            end
        else
@@ -59,8 +59,8 @@ class HostsController < ApplicationController
     end 
   
     def completed
-      @tasks = @host.tasks.completed
-      render :"/tasks/completed"
+      @hosts = @host.hosts.completed
+      render :"/hosts/completed"
     end 
   
     private
