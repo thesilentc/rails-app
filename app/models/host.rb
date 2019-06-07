@@ -4,8 +4,8 @@ class Host < ActiveRecord::Base
   belongs_to :user
   has_many :hats
 
-  # scope :status, -> { where(status: 'active') }
-  # scope :recent, -> { order('projects.updated_at DESC') }
+  scope :status, -> { where(status: 'active') }
+  scope :recent, -> { order('projects.updated_at DESC') }
   
   def completed?
     !completed_at.blank?
