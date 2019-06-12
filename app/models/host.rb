@@ -12,3 +12,10 @@ class Host < ActiveRecord::Base
   end 
 
 end
+
+# might try to rework the db this way
+# class Host < ActiveRecord::Base
+
+#   has_many :hats
+#   has_many :users, through: :hats
+# end

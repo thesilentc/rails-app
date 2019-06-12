@@ -30,3 +30,14 @@ class User < ActiveRecord::Base
   end
   
 end
+# might try to rework the db this way
+# class User < ActiveRecord::Base
+#   has_many :hosts
+#   has_many :hats, through: :hosts
+
+#    has_secure_password
+
+#    def user
+#    end
+
+# end
